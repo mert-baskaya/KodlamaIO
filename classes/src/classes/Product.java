@@ -1,6 +1,12 @@
 package classes;
 
 public class Product {
+	
+	private int id;
+	private String name;
+	private float price;
+	private int discountPercentage;
+	private float discountedPrice;
 
 	public Product() {
 
@@ -14,11 +20,7 @@ public class Product {
 		this.discountPercentage = discountPercentage;
 	}
 
-	private int id;
-	private String name;
-	private float price;
-	private int discountPercentage;
-	private float discountedPrice;
+	
 
 	// Get-Set section
 	public int getId() {
