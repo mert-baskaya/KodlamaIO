@@ -11,8 +11,8 @@ public class Main {
 		hepsiBurada.customerNumber = "123";
 		CustomerManager customerManager = new CustomerManager();
 		
-		customerManager.add(hepsiBurada);
-		customerManager.add(engin);
+		Customer[] customers = {engin, hepsiBurada};
+		customerManager.addMultiple(customers);
 		
 		System.out.println(hepsiBurada.customerNumber + " " + engin.customerNumber);
 		
