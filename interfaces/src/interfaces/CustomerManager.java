@@ -18,14 +18,12 @@ public class CustomerManager {
 		System.out.println("Musteri eklendi: " + customer.getFirstName());
 		
 		//this.logger.log(customer.getFirstName());
-		
-		for (Logger logger : loggers) {
-			logger.log(customer.getFirstName());
-		}
+		Utils.runLoggers(loggers, customer.getFirstName());
 		
 	}
 	
 	public void delete(Customer customer) {
 		System.out.println("Musteri silindi: " + customer.getFirstName());
+		Utils.runLoggers(loggers, customer.getFirstName());
 	}
 }
