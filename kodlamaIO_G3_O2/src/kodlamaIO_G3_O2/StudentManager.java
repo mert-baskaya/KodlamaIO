@@ -4,7 +4,10 @@ public class StudentManager extends UserManager{
 	@Override
 	public void add(User user) {
 		System.out.println(user.id + " eklendi (Student)");
-		//gelen ogrencinin bilgilerine nasil erisilebilir? (ogrenci numarasi)
+		Student student = (Student) user;
+		System.out.println(student.schoolNumber);
+		
+		//gelen ogrencinin bilgilerine nasil erisilebilir? (ogrenci numarasi) -> cozum = typecast, best use mu? idk
 		//gelen user'i database'e inject ederken onun ogrenci olup olmadiginin ayrimini nerede yapacagiz?
 	}
 	@Override
@@ -13,4 +16,5 @@ public class StudentManager extends UserManager{
 			System.out.println(user.id + " coklu eklendi (Student)");
 		}
 	}
+	
 }
