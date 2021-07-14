@@ -7,7 +7,7 @@ public class DuplicateCustomerCheckService implements CustomerCheckService {
 
 	@Override
 	public boolean checkCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		System.out.println("Veritabanina tekrar eden musteri icin bakildi: true");
 		return true;
 	}
 

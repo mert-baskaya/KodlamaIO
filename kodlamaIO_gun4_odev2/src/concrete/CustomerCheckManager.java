@@ -5,7 +5,7 @@ import entities.Customer;
 
 public class CustomerCheckManager implements CustomerCheckService {
 	
-	int comparisonLength;
+	int comparisonLength,trueLength = 0;
 
 
 	/* Dependency injection */
@@ -34,11 +34,16 @@ public class CustomerCheckManager implements CustomerCheckService {
 				return false;
 			}
 		}
-		for (CustomerCheckService checkService : checkServices) {
+		for (CustomerCheckService checkService : checkServices) { 
+			//mantik hatasi, ilk kontrolleri umursamiyor sadece son kontrole bakiyor
 			comparisonLength--;
-			if (checkService.checkCustomer(customer) && comparisonLength == 0) {
+			boolean result = checkService.checkCustomer(customer);
+			if (result && comparisonLength == 0) {
 				System.out.println("Coklu kontrol yapildi, sonuc basarili");
 				return true;
+			} else if(!result && comparisonLength !=0) {
+				System.out.println("Coklu kontrol yapildi, sonuc basarisiz");
+				return false;
 			}
 		}
 		System.out.println("Coklu kontrol yapildi, sonuc basarisiz");

@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Date;
-
 import abstractEntitites.CustomerCheckService;
 import adapters.MernisServiceAdapter;
 import concrete.CustomerCheckManager;
@@ -16,19 +14,19 @@ public class Main {
 		
 		// end my misery
 		
-		// MernisCustomerCheckService mernisCustomerCheckService = new MernisServiceAdapter();
+		MernisServiceAdapter mernisServiceAdapter = new MernisServiceAdapter();
 		
-		MernisCustomerCheckService mernisCustomerCheckService = new MernisCustomerCheckService();
+		//MernisCustomerCheckService mernisCustomerCheckService = new MernisCustomerCheckService();
 		
 		DuplicateCustomerCheckService duplicateCheckService = new DuplicateCustomerCheckService();
 		
-		CustomerCheckService[] checkServices = {mernisCustomerCheckService,duplicateCheckService};
+		CustomerCheckService[] checkServices = {duplicateCheckService, mernisServiceAdapter};
 		
 		CustomerCheckManager customerCheckManager = new CustomerCheckManager(checkServices);
 		
 		StarbucksCustomerManager starbucksCustomerManager = new StarbucksCustomerManager(customerCheckManager);
 		
-		starbucksCustomerManager.save(new Customer(0, "Mert", "Başkaya", "19684062692", new Date(2323223232L)));
+		starbucksCustomerManager.save(new Customer(0, "Mert", "Başkaya", "11111111111", 1998));
 	}
 
 }
