@@ -42,6 +42,9 @@ public class EmployerManager implements EmployerService {
 		if (!nullControl(employer)) {
 			return new ErrorResult("Alanlar bos birakilamaz: " + employer.getEmail());
 		}
+		if (!EmailChecker.checkEmail(employer.getEmail())) {
+			return new ErrorResult("Email hatali: " + employer.getEmail());
+		}
 		if (!EmailChecker.checkEmailDomainConsistancy(employer.getWebAddress(), employer.getEmail())) {
 			return new ErrorResult(
 					"Email ve web adresi uyumlu degil: " + employer.getEmail() + " - " + employer.getWebAddress());
