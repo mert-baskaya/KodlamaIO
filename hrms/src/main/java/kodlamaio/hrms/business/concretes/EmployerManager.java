@@ -54,8 +54,9 @@ public class EmployerManager implements EmployerService {
 		if (!mailValidationService.validate(employer.getEmail()).isSuccess()) {
 			return new ErrorResult("E posta dogrulamasi gerekli zamanda yapilmadi: " + employer.getEmail());
 		}
-		if (!(employer.getPassword() == employer.getPasswordRepeat())) {
-			return new ErrorResult("Girilen sifreler birbiriyle eslesmiyor: " + employer.getEmail());
+		if (!employer.getPassword().equals(employer.getPasswordRepeat())) {
+			return new ErrorResult("Girilen sifreler birbiriyle eslesmiyor: " + employer.getPassword() + " - "
+					+ employer.getPasswordRepeat());
 		} else {
 			employerDao.save(employer);
 			return new SuccessResult(
