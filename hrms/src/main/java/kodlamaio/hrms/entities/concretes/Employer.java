@@ -14,20 +14,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "JobPositions")
-public class JobPosition {
-	
+@Table(name = "Employers")
+public class Employer {
+
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
+	@Column(name = "user_id")
 	private int id;
 	
-	@Column(name = "title")
-	private String title;
+	@Column(name = "company_name")
+	private String companyName;
 	
-	@Column(name = "description")
-	private String description;
-	
-	@Column(name = "salary")
-	private String salary;
+	@Column(name = "phone_number")
+	private String phoneNumber;
 }
