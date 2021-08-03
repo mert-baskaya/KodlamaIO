@@ -66,4 +66,9 @@ public class ProductsController {
 	public DataResult<List<Product>> getByNameAndCategory(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
 		return this.productService.getByNameAndCategory(productName, categoryId);
 	}
+	
+	@GetMapping("/getAllByPage")
+	public DataResult<List<Product>> getAll(int pageNo, int pageSize){
+		return this.productService.getAll(pageNo, pageSize);
+	}
 }
