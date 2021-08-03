@@ -36,8 +36,6 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public Result add(Employer employer) {
-		// TODO business logic
-		// try-catch kullanmak kulaga cok mantikli geliyor
 
 		if (!nullControl(employer)) {
 			return new ErrorResult("Alanlar bos birakilamaz: " + employer.getEmail());
@@ -66,14 +64,6 @@ public class EmployerManager implements EmployerService {
 					"Uyelik basarili, yoneticinin hesabi aktive etmesi bekleniyor: " + employer.getEmail());
 		}
 
-	}
-
-	@Override
-	public Result update(Employer employer) {
-		// burasi boyle olmamali, random bir yerden gelen obje kontrol edilmeden
-		// eklenebilir
-		employerDao.save(employer);
-		return new SuccessResult("Is veren guncellendi: " + employer.getEmail());
 	}
 
 	private boolean nullControl(Employer employer) {
