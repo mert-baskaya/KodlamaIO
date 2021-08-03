@@ -8,6 +8,8 @@ import kodlamaio.northwind.entities.concretes.Product;
 
 public interface ProductService {
 	DataResult<List<Product>> getAll();
+	
+	DataResult<List<Product>> getAll(int pageNo, int pageSize);
 
 	Result add(Product product);
 
